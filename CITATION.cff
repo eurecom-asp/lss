@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use Latent Secret Spin (LSS) in your research, please cite the accompanying paper."
+title: "Latent Secret Spin (LSS): Keyed Orthogonal Rotations for Blind Speech Watermarking in Anisotropic Latent Spaces"
+
+authors:
+  - family-names: "Coletta"
+    given-names: "Emma"
+  - family-names: "Todisco"
+    given-names: "Massimiliano"
+  - family-names: "Panariello"
+    given-names: "Michele"
+  - family-names: "Faonio"
+    given-names: "Antonio"
+  - family-names: "Evans"
+    given-names: "Nicholas"
+
+version: "1.0.0"
+date-released: "2026-06-23"
+
+repository-code: "https://github.com/eurecom-asp/lss/"
+
+license: "MIT"
+
+preferred-citation:
+  type: conference-paper
+  title: "Latent Secret Spin: Keyed Orthogonal Rotations for Blind Speech Watermarking in Anisotropic Latent Spaces"
+  authors:
+    - family-names: "Coletta"
+      given-names: "Emma"
+    - family-names: "Todisco"
+      given-names: "Massimiliano"
+    - family-names: "Panariello"
+      given-names: "Michele"
+    - family-names: "Faonio"
+      given-names: "Antonio"
+    - family-names: "Evans"
+      given-names: "Nicholas"
+  year: 2026
+  conference:
+    name: "Odyssey 2026"
+  pages: "35-41"
+  doi: "10.21437/Odyssey.2026-6"
