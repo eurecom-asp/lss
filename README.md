@@ -200,7 +200,7 @@ This project uses the **EnCodec** neural audio codec for feature extraction. Our
 
 ## 📖 Citation
 
-If you use **Latent Secret Spin (LSS)** or this repository in your research, please cite our paper:
+If you use **Latent Secret Spin (LSS)** or this repository in your work, please cite our paper:
 
 ```bibtex
 @inproceedings{coletta26_odyssey,
