@@ -10,7 +10,7 @@ The framework provides a complete pipeline for PCA estimation, watermark embeddi
 
 ## 💡 Theory Principles and Implementation
 
-Traditional watermarking systems modify the raw speech waveform or frequency spectrum. In contrast, LSS operates on the geometric structure of the latent representation rather than the waveform itself. This design improves robustness to common signal degradations while minimizing perceptual quality degradation. The framework also requires no neural network retraining.
+Traditional watermarking systems modify the raw speech waveform or frequency spectrum. In contrast, LSS operates on the geometric structure of the latent representation rather than the waveform itself. This design improves robustness to common signal degradations while minimizing perceptual quality degradation. The framework also requires no neural network (re)training.
 
 The algorithm relies on four core stages:
 
