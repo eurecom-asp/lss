@@ -41,7 +41,7 @@ The system isolates the targeted geometric planes and computes their cross-covar
 
 ## 🗂️ Repository Structure
 
-This repository contains the **official reference implementation** of **Latent Secret Spin (LSS)** together with the evaluation protocol described in our paper, *Latent Secret Spin: Keyed Orthogonal Rotations for Blind Speech Watermarking in Anisotropic Latent Spaces*, published in **Odyssey 2026**. Please see the [Citation](#-citation) section if you use this repository in your research.
+This repository contains the **official reference implementation** of **Latent Secret Spin (LSS)** together with the evaluation protocol described in our paper, *Latent Secret Spin: Keyed Orthogonal Rotations for Blind Speech Watermarking in Anisotropic Latent Spaces*, published in **Odyssey 2026** (see [Citation](#-citation)).
 
 * `config/config_LSS.yaml` — Central configuration file controlling paths, payload bits, secret keys, and model parameters.
 * `src/` — Core implementation modules (`audio_processing.py`, `encodec_wrapper.py`, `lss_pca.py`, `utils.py`).
