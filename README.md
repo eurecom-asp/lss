@@ -4,7 +4,9 @@
 
 Latent Secret Spin (LSS) is a latent-space speech watermarking framework designed for neural audio codecs. Instead of embedding information directly in the waveform, LSS modifies the codec's latent representations, enabling robust, minimally perceptible watermarking while remaining compatible with modern neural speech generation and compression pipelines.
 
-![LSS Pipeline]()
+<p align="center">
+  <img src="docs/lss_pipeline.jpeg" width="900"/>
+</p>
 
 The framework provides a complete pipeline for PCA estimation, watermark embedding, decoding, re-encoding, and watermark detection. It includes utilities for PCA-based latent modeling, secret-key generation, payload embedding, and both latent-domain and waveform-domain detection. LSS supports reproducible research and adapts to different neural codec architectures with minimal changes.
 
