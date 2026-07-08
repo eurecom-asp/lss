@@ -2,7 +2,7 @@
 
 ### Keyed Orthogonal Rotations for Blind Speech Watermarking in Anisotropic Latent Spaces
 
-Latent Secret Spin (LSS) is a latent-space speech watermarking framework designed for neural audio codecs. Instead of embedding information directly in the waveform, LSS modifies the codec's latent representations, enabling robust, minimally perceptible watermarking while remaining compatible with modern neural speech generation and compression pipelines.
+[Latent Secret Spin (LSS)](docs/LSS_paper_ISCA.pdf) is a latent-space speech watermarking framework designed for neural audio codecs. Instead of embedding information directly in the waveform, LSS modifies the codec's latent representations, enabling robust, minimally perceptible watermarking while remaining compatible with modern neural speech generation and compression pipelines.
 
 <p align="center">
   <img src="docs/diagram_pipeline_lss.jpeg" width="900"/>
