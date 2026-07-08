@@ -36,9 +36,10 @@ The detector does not require access to the original speech recording. Instead, 
 
 The system isolates the targeted geometric planes and computes their cross-covariance values. If the correct key is supplied, the extracted covariance terms sum constructively and produce a strong detection score. If the key is incorrect, or if the audio does not contain a watermark, the covariance contributions tend to cancel out and yield a score close to zero.
 
-This repository contains the reference implementation of LSS together with the evaluation protocol described in the accompanying paper.
 
 ## 🗂️ Repository Structure
+
+This repository contains the **official reference implementation** of **Latent Secret Spin (LSS)** together with the evaluation protocol described in our paper, *Latent Secret Spin: Keyed Orthogonal Rotations for Blind Speech Watermarking in Anisotropic Latent Spaces*, published in **Odyssey 2026**. Please see the [Citation](#-citation) section if you use this repository in your research.
 
 * `config/config_LSS.yaml` — Central configuration file controlling paths, payload bits, secret keys, and model parameters.
 * `src/` — Core implementation modules (`audio_processing.py`, `encodec_wrapper.py`, `lss_pca.py`, `utils.py`).
@@ -175,3 +176,43 @@ Threshold selection ultimately determines the detector's operating behavior:
 
 * **Increase the threshold** to prioritize security and reduce false positives. This may, however, reduce sensitivity to heavily degraded watermarks.
 * **Decrease the threshold** to prioritize sensitivity and improve recovery of degraded watermarks. This increases the risk of incorrectly classifying clean audio as watermarked.
+
+## Installation and Dependencies
+
+Install the core Python packages using the requirements file:
+
+```bash
+pip install -r requirements.txt
+```
+
+### System Prerequisites
+
+* **PyTorch (CUDA):** A standard `pip` install often downloads the CPU version of PyTorch. To use GPU acceleration, you must install PyTorch with the correct CUDA drivers directly from the [PyTorch website](https://pytorch.org/).
+* **FFmpeg:** The audio processing script uses FFmpeg for MP3 attacks. You must install FFmpeg on your operating system (e.g., `apt install ffmpeg` or `brew install ffmpeg`) and add it to your system PATH.
+
+## Acknowledgments
+
+This project uses the **EnCodec** neural audio codec for feature extraction. Our wrapper extracts the latent space using an adaptation of the Hugging Face `transformers` port of the 24kHz model. 
+
+* **Paper:** [High Fidelity Neural Audio Compression](https://openreview.net/pdf?id=ivCd8z8zR2) (Défossez et al., 2022)
+* **Original Repository:** [facebookresearch/encodec](https://github.com/facebookresearch/encodec)
+* **Hugging Face Model:** [facebook/encodec_24khz](https://huggingface.co/facebook/encodec_24khz)
+
+## 📖 Citation
+
+If you use **Latent Secret Spin (LSS)** or this repository in your research, please cite our paper:
+
+```bibtex
+@inproceedings{coletta26_odyssey,
+  title     = {Latent Secret Spin: Keyed Orthogonal Rotations for Blind Speech Watermarking in Anisotropic Latent Spaces},
+  author    = {Emma Coletta and Massimiliano Todisco and Michele Panariello and Antonio Faonio and Nicholas Evans},
+  booktitle = {Odyssey 2026},
+  pages      = {35--41},
+  year       = {2026},
+  doi        = {10.21437/Odyssey.2026-6}
+}
+```
+
+**Paper**
+
+- DOI: `10.21437/Odyssey.2026-6`
