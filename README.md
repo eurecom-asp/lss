@@ -26,7 +26,7 @@ The system projects these latent features into a Principal Component Analysis (P
 
 The embedding process uses a secret cryptographic key to generate a pseudo-random schedule. This schedule selects specific pairs of principal components (geometric planes) across different time chunks.
 
-The system applies small orthogonal rotations (Givens rotations) to these planes to encode the binary payload. Rotating two principal axes with different variances introduces a measurable cross-covariance between them. This creates a latent signature that can later be recovered during detection.
+The system applies small orthogonal rotations (_Givens rotations_) to these planes to encode the binary payload. Rotating two principal axes with different variances introduces a measurable cross-covariance between them. This creates a latent signature that can later be recovered during detection.
 
 For small rotation angles, the induced covariance is approximately proportional to the rotation angle. Consequently, its sign reveals the direction of the applied rotation and serves as the fundamental watermark carrier.
 
