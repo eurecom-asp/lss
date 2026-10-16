@@ -1,0 +1,90 @@
+# ============================== GPU manager ==============================
+device: 2
+
+# ============================== Paths ==============================
+paths:
+  #base_ogg: "/medias/speech/data/voxpopuli/unlabelled_data/en/"
+  embed_audio_dir: "/path/to/your/audio/dir/embedding"        # Input target folder/file for embedding
+  detect_audio_dir: "/path/to/your/audio/dir/detection"          # Input target folder/file for detection
+  clean_audio_dir: "/path/to/your/clean_audio/dir/detection"     # Input target folder/file CLEAN for detection benchmarking mode
+  pca_estim_audio_dir: "/path/to/your/audio/dir/pca_estimation"
+  use_subfolders: true
+  results_dir: "./results/..."      # /path/to/your/detection/results
+  audio_wm_out_dir: "/path/to/save/your/watermarked_audio/"              # Output destination folder for clean watermarked audio
+  audio_wm_out_dir_manip: "/path/to/save/your/manipulated/watermarked_audio/"        # Output destination folder for manipulated audio
+  pca_save_dir: "/path/to/save/estimated/pca_basis"                  # Folder to save newly estimated PCA stats
+  #pca_load_dir: "/medias/speech/projects/colettae/Water/ASVspoof5_eval/checkpoints/bonafide_no_codec/PCA_20260204_0013_1337_25102.pt" #[complete with file name to import]
+  pca_load_dir: "/path/to/your/PCA_basis" #[complete with file name to import]
+
+
+input_audio:
+  sample_rate: 16000    # Original sample rate of input audio - for resampling purposes
+
+# ============================== Encodec / PCA-LSS ==============================
+encodec:
+  sample_rate: 24000
+  target_bandwidth_kbps: 6.0
+
+pca_lss:
+  theta: 0.18     # radians
+  payload_planes: 24
+  pilots: 0
+  m_frames: 32
+  L: 8
+  householder_mixers: 0
+  repetition_default: 4
+
+batching:
+  test_batch_size: 32
+  num_workers: 8
+
+script:
+  max_files: 100         # samples to estimate PCA basis with
+  max_eval: 100        # samples used for evaluation
+  bits: "01011010"       # binary payload sequence to embed
+  payload_length: 8      # length of embedded payload with repetition factor x4
+
+modes:
+  save_watermarked_wav: true
+  save_manipulated_wav: false
+  wrong_key_eval: false
+
+  fit_pca: false
+  eval_mode: true
+
+  load_pca: true   # Set to true to save new stats to 'pca_save_dir'
+  save_pca: false   # Set to true to save new stats to 'pca_save_dir'
+
+run_lss:
+  #audio_proc_attack: "lowpass"      # alias of default_attack, but local override is allowed
+  key: ""             # expects type=str; LSS secret key (correct)
+  wrong_key: null     # LSS secret key (wrong - to evaluate detection with wrong encryption)
+
+  #save audio options
+  #save_wm_wav: true       # true or false; to save watermarked audio
+  save_manipulated_wav: false
+  tracks_to_save: 100
+  compute_pesq: true
+
+
+manipulation:
+  name: "clean"    # or: clean (no_manip audio), lowpass_hz, highpass_hz, bandpass_hz, mp3_kbps, resampling, white_noise, pink_noise
+
+  cutoff_low: 3000        # lowpass filter cutoff [Hz]
+
+  cutoff_high: 4000       # highpass filter cutoff [Hz]
+
+  cutoff_bp_low: 900      # bandpass cutoff (lower bound) [Hz]
+  cutoff_bp_high: 1500    # bandpass cutoff (upper bound) [Hz]
+
+  mp3_bitrate: 256        # mp3 compression bitrate [kbps]
+
+  target_resample: 16000  # target resampling frequency [Hz]
+
+  snr_db: 20              # noise level [dB]
+
+split:
+  seed: 1337
+  #ratios: [0.8, 0.2]
+
+
