@@ -1,0 +1,11 @@
+torch
+torchaudio
+torchmetrics
+transformers
+scipy
+numpy
+pandas
+PyYAML
+pesq
+tqdm
+gputil
